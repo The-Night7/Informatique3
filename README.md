@@ -1,6 +1,6 @@
 # 📚 Informatique 3 - TDs Pré-ING2
 
-> **CY Tech - Semestre 1 2023/2024**  
+> **CY Tech - Semestre 1 2024/2025**  
 > Collection complète des travaux dirigés en structures de données et programmation système
 
 ---
