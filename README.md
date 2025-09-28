@@ -17,8 +17,8 @@ Ce dépôt contient l'ensemble des **10 TDs** du cours d'Informatique 3, couvran
 |:--:|-------|---------------|:----------:|
 | **01** | [Listes chaînées](Info3_TD01_ListesChainees.pdf) | Allocation dynamique, pointeurs, insertion/suppression | ⭐⭐ |
 | **02** | [Piles et Files (1)](Info3_TD02_PileFile.pdf) | LIFO/FIFO, implémentation dynamique | ⭐⭐ |
-| **03** | [Piles et Files (2)](Info3_TD03_PileFileListes.pdf) | Listes doublement chaînées, tri de crêpes | ⭐⭐⭐ |
-| **04** | [Arbres](Info3_TD04_Arbres.pdf) | Arbres binaires, parcours, notation polonaise | ⭐⭐⭐ |
+| **03** | [Piles et Files (2)](TD03_PileFileListes/Info3_TD03_PileFileListes.pdf) | Listes doublement chaînées, tri de crêpes | ⭐⭐⭐ |
+| **04** | [Arbres](TD04_Arbres/Info3_TD04_Arbres.pdf) | Arbres binaires, parcours, notation polonaise | ⭐⭐⭐ |
 | **05** | [Arbres Binaires de Recherche](Info3_TD05_ABR.pdf) | ABR, insertion/suppression, recherche | ⭐⭐⭐ |
 | **06** | [Arbres AVL](Info3_TD06_AVL.pdf) | Auto-équilibrage, rotations, facteur d'équilibrage | ⭐⭐⭐⭐ |
 
