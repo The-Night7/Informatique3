@@ -13,23 +13,23 @@ Ce dépôt contient l'ensemble des **10 TDs** du cours d'Informatique 3, couvran
 
 ### 🔗 **Structures de données**
 
-| TD | Sujet | Concepts clés | Difficulté |
-|:--:|-------|---------------|:----------:|
-| **01** | [Listes chaînées](Info3_TD01_ListesChainees.pdf) | Allocation dynamique, pointeurs, insertion/suppression | ⭐⭐ |
-| **02** | [Piles et Files (1)](Info3_TD02_PileFile.pdf) | LIFO/FIFO, implémentation dynamique | ⭐⭐ |
-| **03** | [Piles et Files (2)](TD03_PileFileListes/Info3_TD03_PileFileListes.pdf) | Listes doublement chaînées, tri de crêpes | ⭐⭐⭐ |
-| **04** | [Arbres](TD04_Arbres/Info3_TD04_Arbres.pdf) | Arbres binaires, parcours, notation polonaise | ⭐⭐⭐ |
-| **05** | [Arbres Binaires de Recherche](Info3_TD05_ABR.pdf) | ABR, insertion/suppression, recherche | ⭐⭐⭐ |
-| **06** | [Arbres AVL](Info3_TD06_AVL.pdf) | Auto-équilibrage, rotations, facteur d'équilibrage | ⭐⭐⭐⭐ |
+|   TD   | Sujet                                                                   | Concepts clés                                          | Difficulté |
+|:------:|-------------------------------------------------------------------------|--------------------------------------------------------|:----------:|
+| **01** | [Listes chaînées](TD01_ListesChainees/Info3_TD01_ListesChainees.pdf)    | Allocation dynamique, pointeurs, insertion/suppression |     ⭐⭐     |
+| **02** | [Piles et Files (1)](TD02_PileFile/Info3_TD02_PileFile.pdf)             | LIFO/FIFO, implémentation dynamique                    |     ⭐⭐     |
+| **03** | [Piles et Files (2)](TD03_PileFileListes/Info3_TD03_PileFileListes.pdf) | Listes doublement chaînées, tri de crêpes              |    ⭐⭐⭐     |
+| **04** | [Arbres](TD04_Arbres/Info3_TD04_Arbres.pdf)                             | Arbres binaires, parcours, notation polonaise          |    ⭐⭐⭐     |
+| **05** | [Arbres Binaires de Recherche](TD05_ABR/Info3_TD05_ABR.pdf)             | ABR, insertion/suppression, recherche                  |    ⭐⭐⭐     |
+| **06** | [Arbres AVL](TD06_AVL/Info3_TD06_AVL.pdf)                               | Auto-équilibrage, rotations, facteur d'équilibrage     |    ⭐⭐⭐⭐    |
 
 ### 🐧 **Programmation système Unix**
 
-| TD | Sujet | Concepts clés | Difficulté |
-|:--:|-------|---------------|:----------:|
-| **07** | [Commandes Unix](Info3_TD07_Unix_Shell_Commandes.pdf) | Navigation, fichiers, permissions, alias | ⭐⭐ |
-| **08** | [Redirections et Filtrage](Info3_TD8_Unix_Shell_Redirections.pdf) | Pipes, redirections, filtres (grep, cut, sort) | ⭐⭐⭐ |
-| **09** | [Programmation Shell](Info3_TD09_Unix_Shell_Programmation.pdf) | Scripts bash, variables, structures de contrôle | ⭐⭐⭐ |
-| **10** | [Processus](Info3_TD10_Unix_Shell_Processus.pdf) | Gestion des processus, signaux, jobs | ⭐⭐⭐ |
+| TD | Sujet                                                                                         | Concepts clés | Difficulté |
+|:--:|-----------------------------------------------------------------------------------------------|---------------|:----------:|
+| **07** | [Commandes Unix](TD07_Unix_Shell_Commandes/Info3_TD07_Unix_Shell_Commandes.pdf)               | Navigation, fichiers, permissions, alias | ⭐⭐ |
+| **08** | [Redirections et Filtrage](TD8_Unix_Shell_Redirections/Info3_TD8_Unix_Shell_Redirections.pdf) | Pipes, redirections, filtres (grep, cut, sort) | ⭐⭐⭐ |
+| **09** | [Programmation Shell](TD09_Unix_Shell_Programmation/Info3_TD09_Unix_Shell_Programmation.pdf)  | Scripts bash, variables, structures de contrôle | ⭐⭐⭐ |
+| **10** | [Processus](TD10_Unix_Shell_Processus/Info3_TD10_Unix_Shell_Processus.pdf)                    | Gestion des processus, signaux, jobs | ⭐⭐⭐ |
 
 ## 🛠️ Compilation et exécution
 
@@ -109,7 +109,7 @@ Info3-TDs/
 
 ## 📖 Ressources complémentaires
 
-- [Cours magistral Informatique 3](lien-vers-cours)
+- [Cours magistral Informatique 3](https://cours.cyu.fr/course/view.php?id=376#module-5355)
 - [Documentation GCC](https://gcc.gnu.org/onlinedocs/)
 - [Guide Bash](https://www.gnu.org/software/bash/manual/)
 - [Référence Unix/Linux](https://man7.org/linux/man-pages/)
