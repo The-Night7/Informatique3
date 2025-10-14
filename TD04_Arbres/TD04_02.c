@@ -307,24 +307,24 @@ int hauteur(pArbre a) {
 // Fonction principale pour tester l'implémentation
 int main() {
     // 1.i Construction de l'arbre
-    pArbre racine = creerArbre(8);
+    pArbre racine = creerArbre(1);
 
     // Niveau 1
-    ajouterFilsGauche(racine, 3);
-    ajouterFilsDroit(racine, 10);
+    ajouterFilsGauche(racine, 2);
+    ajouterFilsDroit(racine, 8);
 
     // Niveau 2 - sous-arbre gauche
-    ajouterFilsGauche(racine->gauche, 1);
+    ajouterFilsGauche(racine->gauche, 3);
     ajouterFilsDroit(racine->gauche, 6);
 
     // Niveau 2 - sous-arbre droit
     ajouterFilsGauche(racine->droit, 9);
-    ajouterFilsDroit(racine->droit, 14);
+    ajouterFilsDroit(racine->droit, 10);
 
     // Niveau 3
-    ajouterFilsGauche(racine->gauche->droit, 4);
+    ajouterFilsGauche(racine->gauche->gauche, 4);
+    ajouterFilsDroit(racine->gauche->gauche, 5);
     ajouterFilsDroit(racine->gauche->droit, 7);
-    ajouterFilsDroit(racine->droit->droit, 15);
 
     // 2.c Vérification avec parcours préfixe
     printf("Parcours préfixe: ");
@@ -340,6 +340,11 @@ int main() {
     printf("Parcours en largeur: ");
     parcoursLargeur(racine);
     printf("\n");
+    // Analyse de l'arbre
+    printf("Nombre de feuilles: %d\n", nmbFeuille(racine));
+    printf("Taille de l'arbre: %d\n", tailleArbre(racine));
+
+    printf("Hauteur de l'arbre: %d\n", hauteur(racine));
 
     // 3.c Suppression des nœuds 9, 15 et 3
     supprimerFilsGauche(racine->droit);  // Supprime 9
@@ -358,7 +363,7 @@ int main() {
     parcoursLargeur(racine);
     printf("\n");
 
-    // Analyse de l'arbre
+    // Analyse de l'arbre après suppression
     printf("Nombre de feuilles: %d\n", nmbFeuille(racine));
     printf("Taille de l'arbre: %d\n", tailleArbre(racine));
 
