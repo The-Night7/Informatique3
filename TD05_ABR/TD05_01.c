@@ -109,6 +109,45 @@ void printTree(Node* root, int level) {
     printTree(root->left, level + 1);
 }
 
+static void printWithPrefix(Node* node, const char* prefix, int isLast) {
+    if (!node) return;
+
+    // branche + valeur
+    printf("%s%s%d\n", prefix, isLast ? "└── " : "├── ", node->data);
+
+    // Préfixe pour les enfants
+    char nextPrefix[1024];
+    snprintf(nextPrefix, sizeof(nextPrefix), "%s%s", prefix, isLast ? "    " : "│   ");
+
+    // Lister les enfants (gauche puis droite)
+    Node* children[2];
+    int count = 0;
+    if (node->left)  children[count++] = node->left;
+    if (node->right) children[count++] = node->right;
+
+    for (int i = 0; i < count; ++i) {
+        int childIsLast = (i == count - 1);
+        printWithPrefix(children[i], nextPrefix, childIsLast);
+    }
+}
+
+void printTreeTopDown(Node* root) {
+    if (!root) { puts("(arbre vide)"); return; }
+    // Afficher la racine sans préfixe, puis ses enfants
+    printf("%d\n", root->data);
+
+    char prefix[1] = {0}; // chaîne vide
+    Node* children[2];
+    int count = 0;
+    if (root->left)  children[count++] = root->left;
+    if (root->right) children[count++] = root->right;
+
+    for (int i = 0; i < count; ++i) {
+        int childIsLast = (i == count - 1);
+        printWithPrefix(children[i], "", childIsLast);
+    }
+}
+
 int main() {
     Node* root1 = NULL;
     int elements[] = {10, 3, 5, 15, 20, 12, 7, 45, 9};
@@ -120,7 +159,7 @@ int main() {
         root1 = insert(root1, elements[i]);
     }
     printf("Premier arbre:\n");
-    printTree(root1, 0);
+    printTreeTopDown(root1);
 
     // 2. Construction du second arbre (ordre inverse)
     Node* root2 = NULL;
@@ -129,7 +168,7 @@ int main() {
         root2 = insert(root2, elements[i]);
     }
     printf("Second arbre:\n");
-    printTree(root2, 0);
+    printTreeTopDown(root2);
 
     printf("\nLes deux arbres sont différents en structure mais ils représentent le même ensemble de données.\n");
 
@@ -148,15 +187,15 @@ int main() {
     // 4. Suppression des éléments 5 puis 12 du premier arbre
     printf("\n4. Suppression des éléments 5 puis 12 du premier arbre:\n");
     printf("Arbre avant suppression:\n");
-    printTree(root1, 0);
+    printTreeTopDown(root1);
 
     root1 = deleteNode(root1, 5);
     printf("\nAprès suppression de 5:\n");
-    printTree(root1, 0);
+    printTreeTopDown(root1);
 
     root1 = deleteNode(root1, 12);
     printf("\nAprès suppression de 12:\n");
-    printTree(root1, 0);
+    printTreeTopDown(root1);
 
     // Libération de la mémoire
     // (Une fonction récursive pour libérer tous les nœuds serait nécessaire ici)
