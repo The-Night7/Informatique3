@@ -91,17 +91,21 @@ void inorderTraversal(Node* root) {
     }
 }
 
-// Fonction pour afficher l'arbre (pour visualisation)
 void printTree(Node* root, int level) {
-    if (root == NULL) return;
+    if (root == NULL) {
+        return;
+    }
 
+    // Afficher le sous-arbre droit en premier (niveau supérieur)
     printTree(root->right, level + 1);
 
+    // Afficher le nœud courant avec indentation
     for (int i = 0; i < level; i++) {
-        printf("    ");
+        printf("    ");  // Chaque niveau augmente l'indentation
     }
     printf("%d\n", root->data);
 
+    // Afficher le sous-arbre gauche
     printTree(root->left, level + 1);
 }
 
