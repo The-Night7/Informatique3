@@ -52,6 +52,10 @@ int min(int a, int b) {
     return (a < b) ? a : b;
 }
 
+int min3(int a, int b, int c) {
+    return min(min(a, b), c);
+}
+
 // Fonction pour créer un nouveau nœud AVL
 AVL* creerNoeud(int data) {
     AVL* nouveauNoeud = (AVL*)malloc(sizeof(AVL));
@@ -111,9 +115,53 @@ AVL* rotationSimpleGauche(AVL* racine) {
     racine->equilibre = eqRac - max(eqPiv, 0) - 1;
 
     // Mise à jour du facteur d'équilibre du pivot
-    pivot->equilibre = min(eqRac - 2, eqRac + eqPiv - 2, eqPiv - 1);
+    pivot->equilibre = min3(eqRac - 2, eqRac + eqPiv - 2, eqPiv - 1);
 
     return pivot;
+}
+
+int profondeur(AVL* a)
+{
+    if (a == NULL)
+    {
+        return -1;
+    }
+
+    int pg = profondeur(a->fg);
+    int pd = profondeur(a->fd);
+
+    if (pg > pd)
+    {
+        return 1+pg;
+    }
+    else
+    {
+        return 1+pd;
+    }
+}
+
+int equilibre(AVL* a)
+{
+    if (a == NULL)
+    {
+        return 0;
+    }
+
+    return profondeur(a->fd) - profondeur(a->fg);
+}
+
+AVL* equilibrageAVL(AVL* a)
+{
+    if (a->equilibre >= 2)
+    {
+        if (a->fd->equilibre<=-1)
+        {
+            return doubeRotationGauche(a);
+        } else
+        {
+            return rotationSimpleDroite(a);
+        }
+    }
 }
 
 // Fonction pour insérer un nœud dans un AVL (avec rééquilibrage)
@@ -125,10 +173,8 @@ AVL* inserer(AVL* racine, int valeur) {
 
     if (valeur < racine->data) {
         racine->fg = inserer(racine->fg, valeur);
-        racine->equilibre++; // Augmenter le facteur d'équilibre car côté gauche augmente
     } else if (valeur > racine->data) {
         racine->fd = inserer(racine->fd, valeur);
-        racine->equilibre--; // Diminuer le facteur d'équilibre car côté droit augmente
     } else {
         // Valeur déjà dans l'arbre
         return racine;
