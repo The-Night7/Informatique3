@@ -1,0 +1,72 @@
+==============================================================================
+EXERCICE 1 : GUIDE DE MANIPULATION DES PROCESSUS
+==============================================================================
+
+--- QUESTION 1 : Visualiser les processus du terminal courant ---
+Commande : ps
+Explication : Affiche uniquement les processus attachés au terminal actuel (le shell bash et la commande ps elle-même).
+
+--- QUESTION 2 : Visualiser tous les processus du système ---
+Commande : ps -ef   (ou 'ps aux')
+Explication :
+  -e : tous les processus.
+  -f : format complet (full).
+Père des processus : Regardez la colonne PPID (Parent Process ID).
+Le père ultime de la plupart des processus (PID 1) est 'systemd' (ou 'init' sur les vieux systèmes).
+
+--- QUESTION 3 : Visualiser vos processus ---
+Commande : ps -u $USER
+Explication : Affiche les processus appartenant à l'utilisateur courant.
+
+--- QUESTION 4 : Lancer sleep.sh ---
+Commande : ./sleep.sh
+Observation : Le terminal est "bloqué". Le prompt ne revient pas.
+Est-il possible de lancer d'autres commandes ? NON (pas dans ce terminal).
+
+--- QUESTION 5 : Stopper le script ---
+Action : Appuyez sur Ctrl+C
+Explication : Envoie le signal SIGINT (Interrupt) au processus au premier plan. Le script s'arrête.
+
+--- QUESTION 6 : Lancer en arrière-plan (background) ---
+Commande : ./sleep.sh &
+Observation : Le terminal affiche le PID du processus et redonne la main (le prompt réapparaît). On peut taper d'autres commandes.
+
+--- QUESTION 7 : Passer au premier plan (foreground) ---
+Commande : fg
+Observation : Le script revient au premier plan. Le terminal est de nouveau bloqué.
+Action : Faire Ctrl+C pour le stopper définitivement.
+
+--- QUESTION 8 : Interrompre temporairement (Pause) ---
+Commande : ./sleep.sh
+Action : Appuyez sur Ctrl+Z
+Observation : Le script reçoit SIGTSTP. Il est "Stopped" (suspendu), mais pas tué. Le terminal est accessible.
+
+--- QUESTION 9 : Manipuler l'état (bg/fg) ---
+Commande 1 : jobs
+  -> Affiche la liste des tâches avec leur état (Stopped).
+Commande 2 : bg
+  -> Relance la tâche arrêtée, mais en arrière-plan (Running). Le script continue de tourner sans bloquer le terminal.
+Commande 3 : fg
+  -> Ramène le script au premier plan.
+Action : Ctrl+C pour le stopper.
+
+--- QUESTION 10 : Signaux entre terminaux ---
+Action 1 (Terminal 1) : ./sleep.sh &
+Action 2 (Terminal 2) :
+  - Trouver le PID : ps -u $USER | grep sleep.sh
+  - Mettre en pause : kill -STOP <PID>
+Observation (Terminal 1) : Le processus ne fait plus rien (plus de "Zzz..."), il est suspendu.
+Action 3 (Terminal 2) :
+  - Relancer : kill -CONT <PID>
+Observation (Terminal 1) : Le processus reprend son exécution.
+Vérification : 'ps' montre que le processus existe toujours.
+
+--- QUESTION 11 : Arrêt propre à distance ---
+Action (Terminal 2) : kill -SIGINT <PID>  (ou kill -2 <PID>)
+Observation : Cela a le même effet que Ctrl+C. Le processus se termine proprement.
+
+--- QUESTION 12 : SIGINT vs SIGKILL ---
+Différence :
+  - SIGINT (2) : C'est une demande polie d'arrêt. Le programme peut l'intercepter (le "trapper") pour faire du nettoyage ou l'ignorer.
+  - SIGKILL (9) : C'est un arrêt brutal et immédiat géré par le noyau (kernel). Le programme ne peut ni l'intercepter ni l'ignorer.
+Commande : kill -9 <PID>

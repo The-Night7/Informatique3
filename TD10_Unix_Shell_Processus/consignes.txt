@@ -1,0 +1,29 @@
+Note : ce TD sera effectué depuis une fenêtre de Terminal. Il s’agira d’utiliser les commandes du système pour effectuer
+chaque étape des exercices suivants. Même si il est possible d’utiliser l’explorateur de fichiers graphique pour comparer/vérifier
+le comportement des commandes exécutées, il ne faut pas oublier que le but est de comprendre et de maîtriser les commandes
+dans un environnement UNIX.
+Exercice 1 (Visualiser et manipuler les processus)
+1. Visualiser la liste des processus en cours dans le terminal courant.
+2. Visualiser tous les processus du système. Quel est le père de la plupart des processus systèmes ?
+3. Visualiser les processus dont vous êtes le propriétaire.
+4. Lancer le script sleep.sh depuis le terminal. Est-il encore possible de lancer d’autres commandes depuis ce terminal ?
+5. Stopper le script en cours depuis le terminal.
+6. Relancer le script mais en faisant en sorte de récupérer la main sur le terminal.
+7. Maintenant que le terminal est disponible, faire en sorte de passer le script au premier plan. Le terminal est-il toujours
+accessible ? Stopper l’exécution du script définitivement.
+8. Relancer le script au premier plan. Le terminal n’est pas accessible : interrompre le script temporairement.
+9. Le terminal est à nouveau accessible. Lister les processus : que remarque-t-on ? Faire en sorte de relancer le script en
+arrière-plan. Au bout de quelques instants faire passer le script au premier plan et le stopper définitivement.
+10. Relancer le script en arrière-plan. Pendant que le script tourne, ouvrir un autre terminal et lister les processus utilisateurs
+pour visualiser le PID du script sleep.sh. Envoyer un signal pour le mettre en pause. Relancer un signal pour relâcher
+la pause du script. Que se passe-t-il dans la fenêtre du premier terminal ? Vérifier que le processus est toujours en vie
+dans la liste des processus.
+11. Depuis le 2ème terminal, envoyer un signal pour arrêter le script comme le ferait la combinaison de touches Ctrl+C si
+on avait le script au premier plan. Vérifier que le script a bien été stoppé en regardant la liste des processus.
+12. Il existe un autre signal permettant d’arrêter un processus : le signal KILL. Quelle est la différence avec le signal
+précédent SIGINT ?
+Exercice 2 (Traiter les signaux depuis un programme/script)
+1. Récupérer le fichier sig.c, le compiler et l’exécuter. Tenter de le stopper à l’aide du signal SIGINT (Ctrl+c). Que se
+passe-t-il ? Comment faire pour le stopper définitivement ?
+2. Récupérer le script sig.sh, et l’exécuter. Tenter de le mettre en pause à l’aide du signal SIGTSTP. Que se passe-t-il ?
+Comment faire pour le mettre en pause ?
