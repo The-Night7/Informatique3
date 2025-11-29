@@ -1,0 +1,75 @@
+TD 09 : Unix - Programmation
+Note : ce TD sera effectué depuis une fenêtre de Terminal et depuis un éditeur de texte. Il portera sur les structures
+d’un programme Shell, et comme pour les TDs précédents, il s’agira d’utiliser le langage Shell et les commandes du système
+pour effectuer chaque étape des exercices suivants.
+Exercice 1 (Premiers pas)
+1. Recopier le script suivant dans un éditeur de texte et l’exécuter.
+#!/bin/bash
+for i in ‘seq 1 10‘ ### for i in $(seq 1 10)
+do
+echo "Rock n roll"
+done
+2. Que fait le script suivant ? Décrire ligne par ligne.
+#!/bin/bash
+i1=‘ls -a‘
+i2="grep -R ’tutu’ ∼"
+echo $i1
+echo $i2
+3. Ecrire un script qui prend en entrée plusieurs arguments et qui va afficher :
+— son nom
+— son nombre d’arguments
+— le numéro du processus courant
+— la valeur de chaque argument
+Exercice 2 (Propriétés et comptage des fichiers)
+1. Créer un dossier shell et créer plusieurs fichiers à l’intérieur (ils peuvent être vides) :
+— p1.c
+— p2.pas
+— p3.py
+— memo
+— p4.c
+— p5.txt
+— p6.sh
+— p7.sh
+2. Mettre les droits en exécution aux fichiers p3.py, p6.sh et p7.sh
+3. Dans le répertoire parent de shell, créer un script find_exec.sh qui doit être appelé avec un seul argument qui
+doit obligatoirement être un répertoire.
+4. Modifier le script pour qu’il liste tous les fichiers, et affiche ceux qui sont exécutables.
+5. modifier le script pour qu’il affiche maintenant la taille des fichiers exécutables.
+Exercice 3 (Traitement des notes)
+1. Créer le fichier notes.txt suivant :
+Liste des notes CY-TECH : préING2 (2022-2023)
+Nom étudiant:note
+Paco:10
+Pépé:5
+José:18
+Hermano:15
+Pablo:19.5
+Luis:2
+Toto:20
+Titi:7
+2. Créer un script qui permet d’afficher le contenu de ce fichier mais avec les lignes triées par notes décroissantes. Les 2
+premières lignes doivent être affichées en premier : seules les lignes avec notes doivent être triées.
+Le script prendra en paramètre le fichier notes.txt, vérifiera que le fichier existe et que c’est bien un fichier, vérifiera
+que le nombres de lignes à l’intérieur du fichier est compatible avec le traitement demandé, et enfin affichera le contenu.
+3. Modifier le script pour afficher un message personnalisé si une erreur survient. Ce message devra être envoyé sur l’erreur
+standard et non sur la sortie standard.
+4. Modifier le script pour retourner un code d’erreur différent pour chaque message précédent. Le script retournera le
+code 0 si tout s’est bien passé.
+Exercice 4 (Traitements des fichiers)
+1. Créer un script qui va afficher le contenu détaillé du dossier courant avec les inodes et les fichiers cachés, mais sans la
+première ligne qui indique le total du dossier
+2. Modifier le script pour qu’il stocke le résultat de la commande précédente dans une variable et qu’il affiche chaque ligne
+de cette variable. Que constatez vous sur l’affichage ? Modifier le script pour qu’il affiche correctement chaque ligne.
+3. Pour chaque ligne affichée, modifier le script pour filtrer et ne garder que l’inode, les droits, la taille en octets et le nom
+du fichier.
+4. Stocker dans des variables séparées l’inode, le type de fichier (on peut utiliser les droits affichés précédemment), la taille
+et le nom.
+5. Afficher avec votre propre formalisme le nom du fichier et son type , ainsi que sa taille et son inode.
+Exercice 5 (Comparaison de fichiers)
+— Créer un script qui prendra obligatoirement 2 fichiers en arguments et qui devra comparer que le contenu est le même.
+Ce script devra vérifier les paramètres d’entrée (nombre et type) avant de faire le traitement
+— Le script va calculer une signature sur le contenu des fichiers à l’aide d’une commande de hachage de votre choix. Il va
+ensuite comparer les valeurs de hash pour indiquer le résultat (affichage d’un message d’erreur vers l’erreur standard si
+les fichiers sont différents, sinon aucun affichage. Le script renverra également un code d’erreur (0 ou 1) pour indiquer
+le résultat de la comparaison.
+— Existe-t-il un moyen plus simple que d’écrire un script pour comparer le contenu de fichiers ?
